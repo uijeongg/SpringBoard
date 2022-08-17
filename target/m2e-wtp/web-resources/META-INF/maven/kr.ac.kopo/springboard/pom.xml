@@ -1,0 +1,180 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>kr.ac.kopo</groupId>
+  <artifactId>springboard</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-war-plugin</artifactId>
+  			<version>3.3.2</version>
+  		</plugin>
+  	</plugins>
+  </build>
+  
+  
+  <dependencies> <!-- 마이바티스 연결해주려고 라이브러리 다 추가하면 총 10개 -->
+  
+    <!-- 기본 3개 라이브러리 -->
+  	<!-- 1. spring web mvc -->
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>5.3.22</version>
+	</dependency>
+
+
+	<!-- 2. jsp api -->
+	<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+	<dependency>
+	    <groupId>javax.servlet.jsp</groupId>
+	    <artifactId>javax.servlet.jsp-api</artifactId>
+	    <version>2.3.3</version>
+	    <scope>provided</scope>
+	</dependency>
+
+
+	<!-- 3. servlet api -->
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>4.0.1</version>
+	    <scope>provided</scope>
+	</dependency>
+
+
+
+	<!-- mybatis 관련 -->
+	<!-- mybatis 관련 -->
+	
+	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.5.10</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>2.0.7</version>
+	</dependency>
+
+
+
+	<!-- jdbc 관련 -->
+	<!-- jdbc 관련 -->
+	
+	<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+	<dependency>
+	    <groupId>com.oracle.database.jdbc</groupId>
+	    <artifactId>ojdbc8</artifactId>
+	    <version>21.6.0.0.1</version>
+	</dependency>
+
+
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>5.3.22</version>
+	</dependency>
+	
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-dbcp2</artifactId>
+	    <version>2.9.0</version>
+	</dependency>
+	
+	
+	
+	<!-- junit 관련 -->
+	<!-- junit 관련 -->
+
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	<!-- 이건 junit 치고 두번째거 !! -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.13.2</version>
+	    <scope>test</scope>
+	</dependency>
+
+
+
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+	<!-- Spring TestContext Framework » 4.3.30.RELEASE -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>4.3.30.RELEASE</version>
+	    <scope>test</scope>
+	</dependency>
+
+
+
+	<!-- jstl 관련 : jsp에 el태그 써주려면 필요하니까 임포트 -->
+	<!-- jstl 관련 -->
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+
+
+
+
+
+
+
+
+
+<!-- 디비 -->
+<!-- 디비 -->
+<!-- 디비 -->
+			<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ucp -->
+			<dependency>
+				<groupId>com.oracle.database.jdbc</groupId>
+				<artifactId>ucp</artifactId>
+				<version>21.6.0.0.1</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
+			<dependency>
+				<groupId>com.oracle.database.security</groupId>
+				<artifactId>oraclepki</artifactId>
+				<version>21.6.0.0.1</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_core -->
+			<dependency>
+				<groupId>com.oracle.database.security</groupId>
+				<artifactId>osdt_core</artifactId>
+				<version>21.6.0.0.1</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_cert -->
+			<dependency>
+				<groupId>com.oracle.database.security</groupId>
+				<artifactId>osdt_cert</artifactId>
+				<version>21.6.0.0.1</version>
+			</dependency>
+
+
+
+
+  
+  </dependencies>
+</project>
