@@ -9,7 +9,7 @@
 <body>
 
 <%-- requestMapping에 BoardController라고 써있잖아. 그렇게 BoardController로 연결해주는 링크 --%>
-<a href="${pageContext.request.contextPath}/board">게시판으로 가줘라~!!</a>
+<a href="${pageContext.request.contextPath}/board">게시판으로 가줘라~!</a>
 
 
 </body>
