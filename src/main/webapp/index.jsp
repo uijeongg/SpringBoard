@@ -17,7 +17,7 @@
 
 
 <%-- springboard/login 요청 @GetMapping("/login") 이니까! --%>
-<a href="${pageContext.request.contextPath}/login">로그인</a><br><br>
+<a href="${pageContext.request.contextPath}/login">로그인</a><br><br> 
 
 
 <a href="${pageContext.request.contextPath}/logout">로그아웃</a><br><br>
