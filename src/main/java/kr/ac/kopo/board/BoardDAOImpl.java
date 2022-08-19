@@ -14,7 +14,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Autowired //나 이거 필요하니까 스프링한테 나 이거줘! 하는거 - 마이바티스 쿼리문을 수행해주는 역할
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	@Override
+	@Override  //1. 전체게시글조회
 	public List<BoardVO> selectAll() {
 		
 		List<BoardVO> list = new ArrayList<>();
@@ -24,4 +24,21 @@ public class BoardDAOImpl implements BoardDAO {
 		return list;
 	}
 
+	
+	@Override  //2. 상세게시글조회
+	public BoardVO selectByNo(int boardNo) {
+							 //받아'오는' 값
+		
+		BoardVO board = sqlSessionTemplate.selectOne("board.boardDAO.selectByNo", boardNo);		
+		 
+		return board;
+	}
+	
+	
+	@Override  //3. 새글등록
+	public void insertBoard(BoardVO board) {
+		
+		sqlSessionTemplate.insert("board.boardDAO.insertBoard", board); //board를 줘야해
+		
+	}
 }

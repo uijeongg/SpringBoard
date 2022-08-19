@@ -12,7 +12,10 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
 	
-	//모든 board를 가지고 오는 메소드를 만든 것
+	
+	/**
+	 * 1. 전체게시글조회 모든 board를 가지고 오는 메소드
+	 */
 	@Override
 	public List<BoardVO> getAllBoard() {
 	
@@ -21,4 +24,33 @@ public class BoardServiceImpl implements BoardService {
 		
 		return list;
 	}
+	
+	
+	/**
+	 * 2. 상세게시글조회
+	 */
+	@Override
+	public BoardVO getOneBoard(int boardNo) {
+		
+		BoardVO board = new BoardVO();
+		board = boardDAO.selectByNo(boardNo);
+		
+		return board;
+	}
+
+
+	
+	/**
+	 * 3. 새글등록
+	 */
+	@Override
+	public void writeOneBoard(BoardVO board) {
+		
+		boardDAO.insertBoard(board);
+		
+	}
+	
+
+
+
 }

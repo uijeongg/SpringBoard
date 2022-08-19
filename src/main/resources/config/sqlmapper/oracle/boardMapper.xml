@@ -3,8 +3,56 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board.boardDAO">
-  <select id="selectAll"  resultType="kr.ac.kopo.board.BoardVO">
+
+<!-- mapper의 namespace 하위의 핸들러의 쿼리를 날려주는 개념
+     ex> board.boardDAO.selectAll 의 쿼리를 날린다  
+     
+     
+	id는 DAO의 핸들러 이름으로 맞춰준다?     
+     
+-->
+
+
+
+	<resultMap type="kr.ac.kopo.board.BoardVO" id="boardMap">
+		<result column="title" property="title" />
+		<result column="reg_date" property="regDate" />
+		<result column="view_cnt" property="viewCnt" />
+	</resultMap>
+
+
+<!-- 
+원래 resultType으로 kr.ac.kopo.board.BoardVO 이렇게 써야 하는데 boardVO로 짧게 써주기 위해
+<resultMap>으로 id=boardMap이라는 새 이름을 지정해줌. 
+그래서 resultType= 이 아니고 resultMap= 
+-->
+
+
+  <!-- 1. 전체 게시글 조회 핸들러 -->
+  <!-- <select id="selectAll"  resultType="kr.ac.kopo.board.BoardVO"> -->
+  <select id="selectAll"  resultMap="boardMap">
   <!-- 디비의 값을 저 패키지에 있는 BoardVO 형태로 넘겨줘 그럼 저 return으로 BoardVO의 리스트가 넘어감 -->
-    select * from t_board
+    select no, title, writer, content, view_cnt, reg_date
+     from t_board order by no desc
   </select>
+
+
+   <!-- 2. 상세 게시글 조회 핸들러 (int형 boardNo 내가 줄게 boardMap 받아와) -->
+   <select id="selectByNo" parameterType="int" resultMap="boardMap">
+   						   <!-- 쿼리에 넘기는 형태 /  내가 받는 형태 -->
+   
+   		select * from t_board where no = #{no}
+   </select>
+
+
+
+	<!-- 3. 새글등록 핸들러 (db에 새 글 insert) -->
+	<insert id="insertBoard" parameterType="BoardVO">
+							 <!-- 파라미터로 내가 갖고 있는 BoardVO를 넘겨줘야지 -->
+		insert into t_board (no, title, writer, content)
+			values(seq_t_board_no.nextval, #{title}, #{writer}, #{content})
+	</insert>
+
+
 </mapper>
+

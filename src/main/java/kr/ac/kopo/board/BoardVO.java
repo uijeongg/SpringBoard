@@ -6,7 +6,7 @@ public class BoardVO {
 	private String title;
 	private String writer;
 	private String content;
-	private String view;
+	private String viewCnt;
 	private String regDate;
 	public int getNo() {
 		return no;
@@ -32,11 +32,11 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getView() {
-		return view;
+	public String getViewCnt() {
+		return viewCnt;
 	}
-	public void setView(String view) {
-		this.view = view;
+	public void setViewCnt(String viewCnt) {
+		this.viewCnt = viewCnt;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -46,8 +46,8 @@ public class BoardVO {
 	}
 	@Override
 	public String toString() {
-		return "BoardVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", view="
-				+ view + ", regDate=" + regDate + "]";
+		return "BoardVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", viewCnt="
+				+ viewCnt + ", regDate=" + regDate + "]";
 	}
 	
 	
