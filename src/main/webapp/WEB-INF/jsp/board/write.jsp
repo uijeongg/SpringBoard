@@ -13,6 +13,14 @@
 	<%-- 입력 널값은 script로 앞단에서 막아주기 필요하면 ㄱㄱ --%>
 	<%-- 입력 널값은 script로 앞단에서 막아주기 필요하면 ㄱㄱ --%>
 	
+	
+	
+	<header>
+		<jsp:include page="/WEB-INF/jsp/include/header.jsp"></jsp:include>
+	</header>
+	
+	
+	
 	<form action="${pageContext.request.contextPath}/board/write" method="post">	
 						
 		<table>

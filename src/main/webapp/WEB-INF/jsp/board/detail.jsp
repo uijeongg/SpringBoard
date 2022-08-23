@@ -12,7 +12,10 @@
 </head>
 <body>
 	
-	detail.jsp입니다
+	
+	<header>
+		<jsp:include page="/WEB-INF/jsp/include/header.jsp"></jsp:include>
+	</header>
 	
 	<table  class="table table-Secondary table-striped-columns">
 		<tr>

@@ -43,7 +43,32 @@
 	
 	
 	
+
+	<!-- interceptor를 사용해주기 위해 interceptor bean 만들어주기 -->
+	<bean id="loginInterceptor" class="kr.ac.kopo.interceptor.LoginInterceptor"></bean>
+	
+	<!-- 이걸 가져다가 인터셉터로 동작을 해줘! 콘솔에 프리핸들러 포스트핸들러 등 한 동작씩 찍힐것 이거 돌리면 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/" />  <!-- 밑에 있는 모든 하위 폴더들을 몽땅 다 -->
+			<mvc:exclude-mapping path="/login" /> <!-- 로그인을 해야만 게시글 같은거 볼 수 있게 해줄거야 -->
+			<mvc:exclude-mapping path="/resource/**" />
+			<mvc:exclude-mapping path="/board" /> <!-- 게시판 볼 수 있게 해줄게 -->
+			<mvc:exclude-mapping path="/member/resister" />
+			<ref bean="loginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- 로그인 안한애가 들어오면 로그인페이지로 이동하도록 만들어주자! -->
+
 	
 	
+	
+	
+	
+
+
+
+
 
 </beans>

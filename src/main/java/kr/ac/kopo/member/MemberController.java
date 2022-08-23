@@ -8,14 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-@SessionAttributes("loginVO") //모델아 loginVO 세션에 등록해줘
+@SessionAttributes({"loginVO", "loginmsg"}) //모델아 loginVO 세션에 등록해줘
 @Controller
 public class MemberController {
 
@@ -76,7 +75,8 @@ public class MemberController {
 		//null이 있으면 true 없으면 false
 		if(result.hasErrors()) {
 			//null o -> 다시 입력하세요
-			return "/login";
+			
+			return "member/login";
 			
 		} else {
 			//null x -> 로그인 성공 -> db작업. id/pw 유효한 사용자인지 확인
@@ -94,7 +94,9 @@ public class MemberController {
 					model.addAttribute("loginmsg", "로그인 정보가 올바르지 않습니다");
 					//Model model은 spring form 태그랑 짝궁이라고 생각해
 					
-					return "/login";
+					//session.setAttribute("loginmsg", "로그인 정보가 올바르지 않습니다");
+					
+					return "member/login";
 					
 				} else {
 					//id, pw가 유효한 경우 -> 로그인 성공 -> 세션에 로그인정보 저장해야지
@@ -106,11 +108,28 @@ public class MemberController {
 					//이건 사용하려면 controller에 @SessionAttributes("loginVO")붙여줘야함
 					//model.addAttribute("loginVO", authMember);
 					
-					return "redirect:/board";
+				
+					
+					//return "redirect:/board";
+					//dest를 세션에 저장해놨으니까 이거 말고 이렇게도 가능
+					String dest = (String)session.getAttribute("dest");
+				
+					
+					
+					
+					//로그인 한 한 상태로 새글등록 이런거 눌러서 로그인으로 넘어가게 하는거 말고
+					//처음부터 정직하게 로그인 한 사람들까지도 싹 다 페이지가 막히는 함정 풀어주기
+					if(dest==null) {
+						return "redirect:/";
+					} else {
+						return "redirect:" + dest;
+					}
 					
 				}
+			
+				}
 		}
-	}
+
 	
 	
 	

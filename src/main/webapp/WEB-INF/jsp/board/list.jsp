@@ -14,9 +14,16 @@
 </head>
 <body>	
 	
-	<c:if test="${not empty loginVO}">
-		${loginVO.name} 님 반갑습니다
-	</c:if>
+	<%-- 
+		<c:if test="${not empty loginVO}">
+			${loginVO.name} 님 반갑습니다
+		</c:if> 
+	--%>
+
+
+	<header>
+		<jsp:include page="/WEB-INF/jsp/include/header.jsp"></jsp:include>
+	</header>
 
 
 	<!-- BoardController에서 selectAllBoard 실행해서 담긴 boardlist를 뿌려주자! -->
