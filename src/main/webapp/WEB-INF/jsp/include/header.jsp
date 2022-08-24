@@ -13,7 +13,7 @@
 		<tr>
 			<td rowspan="2">  <!-- 로고 -->
 				<a href="${pageContext.request.contextPath}">
-					<img src="${pageContext.request.contextPath}/resource/logo.jpg" width="100">
+					<img src="${pageContext.request.contextPath}/resource/hana.jpg" width="200">
 				</a>
 			</td> 
 			<td align="right"> 		
@@ -25,8 +25,26 @@
 		
 		<tr>
 			<td>
+				
+				<a href="${pageContext.request.contextPath }"> HOME </a>
+			
+			
+			
+				<%-- 여기서부터 / 구현 시켜야 할 영역 --%>
+			
+			
+				<a href="${pageContext.request.contextPath }/board"> 구현1 </a>
+				<a href="${pageContext.request.contextPath }/board"> 구현2 </a>
+	
+		
+			
+				<%-- 여기까지 / 구현 시켜야 할 영역 --%>
+		
+			
+			
 				<a href="${pageContext.request.contextPath }/board"> 게시판 </a>
-				<a href="${pageContext.request.contextPath }/board/write"> 새글쓰기 </a>
+	 			<%-- <a href="${pageContext.request.contextPath }/board/write"> 새글쓰기 </a> --%>
+			
 			
 			
 				<c:choose>			
@@ -41,6 +59,8 @@
 				</c:choose>
 				
 			</td>
+			
+			
 		</tr>
 	</table>
 
