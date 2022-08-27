@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="account.accountDAO">
+
+
+  <!-- 1. 전체 계좌 조회 핸들러 -->
+  <select id="selectAll"  resultType="kr.ac.kopo.account.AccountVO" parameterType="String">
+ 
+  <!-- id=#{id} 컨트롤러단부터 넘겨준 세션에 저장된 #id를 id 컬럼에 넣겠다 -> 이 id에 해당하는 애들만 불러달라는거지 
+  	   parameterType="String" 이게 파라미터로 넘어온 id의 타입을 의미하는거-->
+  	   
+    select id, accountName, accountNo, accountPw, balance, openDate
+     from t_account where id=#{id}
+  </select>
+
+
+  
+  <!-- 2. 라디오 버튼으로 받아온 checkAccountNo에 맞는 계좌 정보 select -->
+  <select id="selectOne" resultType="kr.ac.kopo.account.AccountVO" parameterType="String">
+ 
+    select accountName, accountNo, balance
+     from t_account where accountNo=#{checkAccountNo}
+  </select>
+  
+
+</mapper>
+

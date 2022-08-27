@@ -150,9 +150,9 @@
 
 
 
-<!-- 디비 -->
-<!-- 디비 -->
-<!-- 디비 -->
+		<!-- 디비 -->
+		<!-- 디비 -->
+		<!-- 디비 -->
 			<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ucp -->
 			<dependency>
 				<groupId>com.oracle.database.jdbc</groupId>
@@ -183,6 +183,26 @@
 
 
 
+<!-- 메일 보내기 API -->
+<dependency>
+       <groupId>org.hibernate.validator</groupId>
+       <artifactId>hibernate-validator</artifactId>
+       <version>6.2.4.Final</version>
+   </dependency>
+
+   
+   <dependency>
+       <groupId>javax.mail</groupId>
+       <artifactId>mail</artifactId>
+       <version>1.4.7</version>
+   </dependency>
+   
+   
+   <dependency>
+       <groupId>org.springframework</groupId>
+       <artifactId>spring-context-support</artifactId>
+       <version>5.3.9</version>
+   </dependency>
 
   
   </dependencies>

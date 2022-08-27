@@ -13,7 +13,7 @@
 		<tr>
 			<td rowspan="2">  <!-- 로고 -->
 				<a href="${pageContext.request.contextPath}">
-					<img src="${pageContext.request.contextPath}/resource/hana.jpg" width="200">
+					<img src="${pageContext.request.contextPath}/resource/img/hana.jpg" width="200">
 				</a>
 			</td> 
 			<td align="right"> 		
@@ -35,7 +35,7 @@
 			
 				<a href="${pageContext.request.contextPath }/board"> 구현1 </a>
 				<a href="${pageContext.request.contextPath }/board"> 구현2 </a>
-	
+			<!-- 	<a href="//WEB-INF/jsp/bankbook/bankbookMain">쪼개기페이지</a> -->
 		
 			
 				<%-- 여기까지 / 구현 시켜야 할 영역 --%>

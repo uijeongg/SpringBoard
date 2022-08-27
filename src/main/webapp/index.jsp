@@ -30,5 +30,13 @@
 <a href="${pageContext.request.contextPath}/logout">로그아웃</a><br><br>
 
 
+<a href="${pageContext.request.contextPath}/mailform">메일</a><br><br>
+
+
+<a href="${pageContext.request.contextPath}/accountList">계좌목록(통장전환전)</a><br><br>
+
+
+<a href="${pageContext.request.contextPath}/changeSuccess">통장전환성공</a><br><br> <%-- 아직 컨트롤러단 안만듦!! --%>
+
 </body>
 </html>
