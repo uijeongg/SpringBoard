@@ -4,9 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myBank.MyBankDAO">
 
-
-  
-
-  
+	
+	
+	<!-- 1. finalChange 
+		 1) t_account 에서 accountName을 '내서비스통장' 으로 update -->
+	<update id="changeName" parameterType="String">
+		update t_account set accountName='내서비스 통장' where accountNo=#{accountNo}
+	</update>
+	
+	
+	<!-- 1. finalChange 
+		 2) t_mybank 에 고객정보 그대로 insert (balance는 basicBal로) 
+	<insert id="insert" parameterType="kr.ac.kopo.account.AccountVO">
+	 	insert into t_mybank(accountNo, basicBal) values(#{checkAccountNo}, #{balance})
+	</insert>
+	-->
+	
 
 </mapper>

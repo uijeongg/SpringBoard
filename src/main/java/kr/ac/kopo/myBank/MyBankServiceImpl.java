@@ -14,4 +14,15 @@ public class MyBankServiceImpl implements MyBankService {
 	private AccountDAO accountDAO;
 	
 	
+	/**
+	 * 1. 
+	 */
+	@Override
+	public void updateName(String accountNo) {
+		
+		mybankDAO.changeName(accountNo);
+		
+		
+	}
+	
 }
