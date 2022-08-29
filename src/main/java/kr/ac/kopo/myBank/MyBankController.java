@@ -21,7 +21,7 @@ public class MyBankController {
 
 	/**
 	 * 1. 최종 통장 전환
-	 * changing.jsp에서 모든 약관 동의 후 통장전환 submit
+	 * (service 3개 호출)
 	 */
 	@PostMapping("/changeSuccess")
 	public String finalChange(HttpServletRequest request) {
@@ -29,7 +29,7 @@ public class MyBankController {
 		String accountNo = request.getParameter("accountNo");
 		int balance = Integer.parseInt(request.getParameter("balance"));
 		
-		System.out.println("AccountNo랑 balance 가져옴? : " + accountNo + balance);
+		//System.out.println("AccountNo랑 balance 가져옴? : " + accountNo + balance);
 
 		
 		
@@ -58,10 +58,24 @@ public class MyBankController {
 		
 		request.setAttribute("MyBank", MyBank); //request에 저장해주자
 	
-		
 		return "/myBank/changeSuccess";
 	}
 	
 	
+	
+	/**
+	 * 2. 내서비스통장 메인화면 (조회)
+	 * (통장 전환 후 '내서비스통장 확인하러 가기' 버튼 서밋)
+	 */
+	@PostMapping("/mybankMain")
+	public String showMain(HttpServletRequest request) {
+		
+		
+		
+		
+		
+		
+		return "/myBank/mybankMain";
+	}
 
 }
