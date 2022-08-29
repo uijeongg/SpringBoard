@@ -47,6 +47,8 @@ $(document).on('click','#checkAll',function(){
 	
 	<form action="${pageContext.request.contextPath}/changeSuccess" method="post">	
 	<input type="hidden" name="accountNo" value="${ accountOne.accountNo }">
+	<input type="hidden" name="balance" value="${ accountOne.balance }">
+	<%-- controller로 값 전달 --%>
 	
 	
 		<%-- 상품정보, 금리 등 안내 확인 --%>

@@ -6,7 +6,7 @@ public class AccountVO {
 	private String accountName;
 	private String accountNo;
 	private String accountPw;
-	private String balance;
+	private int balance;
 	private String openDate;
 	
 	
@@ -34,10 +34,10 @@ public class AccountVO {
 	public void setAccountPw(String accountPw) {
 		this.accountPw = accountPw;
 	}
-	public String getBalance() {
+	public int getBalance() {
 		return balance;
 	}
-	public void setBalance(String balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 	public String getOpenDate() {
@@ -51,6 +51,8 @@ public class AccountVO {
 		return "AccountVO [id=" + id + ", accountName=" + accountName + ", accountNo=" + accountNo + ", accountPw="
 				+ accountPw + ", balance=" + balance + ", openDate=" + openDate + "]";
 	}
+	
+	
 	
 	
 }

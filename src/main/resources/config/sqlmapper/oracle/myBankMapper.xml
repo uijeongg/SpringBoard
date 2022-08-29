@@ -8,17 +8,33 @@
 	
 	<!-- 1. finalChange 
 		 1) t_account 에서 accountName을 '내서비스통장' 으로 update -->
-	<update id="changeName" parameterType="String">
+	<update id="updateAccount" parameterType="String">
 		update t_account set accountName='내서비스 통장' where accountNo=#{accountNo}
 	</update>
 	
 	
 	<!-- 1. finalChange 
-		 2) t_mybank 에 고객정보 그대로 insert (balance는 basicBal로) 
-	<insert id="insert" parameterType="kr.ac.kopo.account.AccountVO">
-	 	insert into t_mybank(accountNo, basicBal) values(#{checkAccountNo}, #{balance})
+		 2) t_mybank 에 고객정보 그대로 insert (balance는 basicBal로) -->
+	<insert id="insertNew" parameterType="kr.ac.kopo.account.AccountVO">
+	 	insert into t_mybank(accountNo, basicBal) values(#{accountNo}, #{balance})
 	</insert>
-	-->
 	
+	
+	
+
+	<!-- 1. finalChange 
+		 3) changeSuccess.jsp에 전환 완료된 내서비스통장 정보 조회 뿌리기  -->
+    <select id="selectNew" resultType="kr.ac.kopo.myBank.MyBankVO" parameterType="String">
+   <!--  조인하려면 리저트타입을 해쉬맵 사용 <select id="changeSelect" resultType="java.util.HashMap" parameterType="AccountVO"> -->
+
+		select * from t_mybank where accountNo=#{accountNo}
+ 		<!-- select * from t_mybank where accountNo=#{accountNo} and basicBal=#{balance} -->
+ 		
+ 	
+    </select>
+
+
+
+
 
 </mapper>

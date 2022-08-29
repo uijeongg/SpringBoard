@@ -26,34 +26,42 @@ public class MyBankController {
 	@PostMapping("/changeSuccess")
 	public String finalChange(HttpServletRequest request) {
 		
-	//	String checkAccountNo = request.getParameter("checkAccountNo");
-	//	System.out.println("checkAccountNo 가져옴? : " + checkAccountNo); //라디오버튼으로 받아온 전환할 통장의 계좌번호
-	
 		String accountNo = request.getParameter("accountNo");
-		System.out.println("AccountNo 가져옴? : " + accountNo);
-//		
-//		AccountVO account = accountService.getOneAccount(checkAccountNo);
-//		String balance = account.getBalance();
-//		
-//		AccountVO newAccount = new AccountVO();
-//		newAccount.setAccountNo(checkAccountNo);
-//		newAccount.setBalance(balance);
+		int balance = Integer.parseInt(request.getParameter("balance"));
 		
+		System.out.println("AccountNo랑 balance 가져옴? : " + accountNo + balance);
+
+		
+		
+		AccountVO newAccount = new AccountVO();
+		newAccount.setAccountNo(accountNo);
+		newAccount.setBalance(balance);
+		
+	
 		/*
 		 * 1. t_account 에서 accountName을 '내서비스통장' 으로 update
 		 * 2. t_mybank 에서 고객정보 그대로 insert (balance는 basicBal로)
+		 * 3. changeSuccess.jsp에서 뿌려줄 전환 성공한 내서비스통장의 정보를 select 쿼리문
 		 */
 		
-		//1. 서비스 호출할 때 (checkAccountNo) 가져가기
-		//2. 서비스 호출할 때 (checkAccountNo, balance) 가져가기
+		//1. 서비스 호출할 때 (accountNo) 가져가기
+		//2. 서비스 호출할 때 (newAccount) 가져가기
 		
-		mybankService.updateName(accountNo);
+		mybankService.updateOne(accountNo); 
+		System.out.println("업데이트 성공");    
 		
-		//3. changeSuccess.jsp에서 뿌려줄 select 쿼리문도 만들어주기
+		mybankService.insertOne(newAccount);
+		System.out.println("인서트 성공");
 		
+		MyBankVO MyBank = mybankService.getNewAccount(accountNo);
+		System.out.println(MyBank + " 셀렉트성공");
+		
+		request.setAttribute("MyBank", MyBank); //request에 저장해주자
+	
 		
 		return "/myBank/changeSuccess";
 	}
 	
-	  
+	
+
 }
