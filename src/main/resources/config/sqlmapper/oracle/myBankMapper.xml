@@ -34,7 +34,20 @@
     </select>
 
 
+	<!-- 2. showMain
+		 mybankMain.jsp에서 뿌려줄 전환 완료된 통장 정보 -->
+		<select id="selectSuccess" resultType="kr.ac.kopo.myBank.MyBankVO" parameterType="String">
+			select * from t_mybank where accountNo=#{accountNo}	
+		</select>
 
+
+
+	
+	<!-- 3. addPocket : 주머니 추가 insert -->
+	<insert id="insertNewPoc" parameterType="kr.ac.kopo.addPocket.AddPocketVO">
+	 	insert into t_addpocket(pocketName, pocketPurpose) values(#{pocketName}, #{pocketPurpose})
+	</insert>
+	
 
 
 </mapper>

@@ -23,5 +23,15 @@ public interface BoardDAO {
 	 */
 	//BoardVO insertBoard();
 	void insertBoard(BoardVO board);
+	
+	
+	
+	/**
+	 * replyController에서 replyCnt increase 트랜잭션
+	 */
+	void increaseReplyCnt(int boardNo);
+	
+	
+	
 }
  

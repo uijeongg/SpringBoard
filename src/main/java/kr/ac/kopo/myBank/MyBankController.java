@@ -4,13 +4,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import kr.ac.kopo.account.AccountService;
 import kr.ac.kopo.account.AccountVO;
+import kr.ac.kopo.addPocket.AddPocketVO;
 
 @Controller
 public class MyBankController {
+
+	
 
 	@Autowired
 	private MyBankService mybankService;
@@ -23,6 +28,7 @@ public class MyBankController {
 	 * 1. 최종 통장 전환
 	 * (service 3개 호출)
 	 */
+	@Transactional
 	@PostMapping("/changeSuccess")
 	public String finalChange(HttpServletRequest request) {
 		
@@ -56,6 +62,7 @@ public class MyBankController {
 		MyBankVO MyBank = mybankService.getNewAccount(accountNo);
 		System.out.println(MyBank + " 셀렉트성공");
 		
+		
 		request.setAttribute("MyBank", MyBank); //request에 저장해주자
 	
 		return "/myBank/changeSuccess";
@@ -65,17 +72,65 @@ public class MyBankController {
 	
 	/**
 	 * 2. 내서비스통장 메인화면 (조회)
-	 * (통장 전환 후 '내서비스통장 확인하러 가기' 버튼 서밋)
+	 * (changing.jsp에서 통장 전환 후 '내서비스통장 확인하러 가기' 버튼 서밋)
 	 */
-	@PostMapping("/mybankMain")
-	public String showMain(HttpServletRequest request) {
+	//@ResponseBody
+	@GetMapping("/mybankMain")
+	public String showMain(HttpServletRequest request) { 
 		
+		String accountNo = request.getParameter("accountNo");
 		
+		MyBankVO MyAccount = new MyBankVO();
+		MyAccount = mybankService.getAccount(accountNo);
 		
-		
-		
+		request.setAttribute("MyAccount", MyAccount);
+		//System.out.println(MyAccount + "마이어카운트");
 		
 		return "/myBank/mybankMain";
+		//return MyAccount;
+	}
+	
+	
+	
+	
+	
+//	  @ResponseBody
+//	  @PostMapping("/mybankMain") 
+//	  public MyBankVO showMain2(HttpServletRequest request) {
+//	  
+//	 // MyBankVO MyAccount = request.getParameter("MyAccount");
+//	  
+//		/*
+//		 * MyBankVO MyAccount = new MyBankVO(); MyAccount =
+//		 * mybankService.getAccount(accountNo);
+//		 */
+//	  
+//	  //request.setAttribute("MyAccount", MyAccount);
+//	  //System.out.println(MyAccount + "마이어카운트");
+//	  
+//	  return null; 
+//	  }
+//	 
+
+	
+	
+	
+	
+	
+	@PostMapping("/addPocket")
+	public String addPocket(HttpServletRequest request) {
+
+		String pocketName = request.getParameter("pocketName");
+		String pocketPurpose = request.getParameter("pocketPurpose");
+		AddPocketVO newPocket = new AddPocketVO();
+		newPocket.setPocketName(pocketName);
+		newPocket.setPocketPurpose(pocketPurpose);
+		
+		//새 주머니 데이터 insert
+		mybankService.insertNewPoc(newPocket);
+		
+		return "/myBank/mybankMain"; 
+	
 	}
 
 }

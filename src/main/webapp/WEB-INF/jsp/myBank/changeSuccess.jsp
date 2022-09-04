@@ -21,8 +21,8 @@
 	<h3> 통장 전환이 완료되었습니다 </h3>
 
 	
-	<form action="${pageContext.request.contextPath}/mybankMain" method="post">	
-	<%-- <input type="hidden" name="accountNo" value="${ accountOne.accountNo }"> --%>
+	<form action="${pageContext.request.contextPath}/mybankMain" method="get">	
+	<input type="hidden" name="accountNo" value="${ MyBank.accountNo }">
 	
 	
 		<%-- 전환할 통장 정보 --%>

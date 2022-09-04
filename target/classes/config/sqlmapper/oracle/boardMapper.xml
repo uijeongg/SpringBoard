@@ -54,5 +54,11 @@
 	</insert>
 
 
+
+	<!-- replyController에서 댓글 insert시 댓글 트랜잭션 replyCnt + 1 -->
+	<update id="increaseReplyCnt" parameterType="int">
+		update t_board set replyCnt = replyCnt +1 where no=${boardNo}
+	</update>
+
 </mapper>
 

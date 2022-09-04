@@ -41,4 +41,13 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSessionTemplate.insert("board.boardDAO.insertBoard", board); //board를 줘야해
 		
 	}
+	
+	
+	//댓글 insert 시 해당 글 조회수 +1 트랜잭션
+	@Override
+	public void increaseReplyCnt(int boardNo) {
+		System.out.println("boardNo"+boardNo);
+		
+		sqlSessionTemplate.update("board.boardDAO.increaseReplyCnt", boardNo);
+	}
 }

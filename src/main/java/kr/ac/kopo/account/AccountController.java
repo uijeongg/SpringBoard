@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import kr.ac.kopo.board.BoardVO;
 import kr.ac.kopo.member.MemberVO;
 
 
@@ -23,6 +21,21 @@ public class AccountController {
 	private AccountService accountService;
 
 
+	/**
+	 * 0. joinMybank
+	 */
+	@GetMapping("/joinMybank")
+	public String joinMybank() {
+	
+		return "/account/joinMybank";
+	}
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 1. 전환 가능한(로그인 회원) 전체 계좌 조회
 	 * index에서 accountList.jsp 들어가줘 요청

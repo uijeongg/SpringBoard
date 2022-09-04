@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.ac.kopo.board.BoardVO;
 import kr.ac.kopo.member.MemberVO;
+import kr.ac.kopo.reply.ReplyVO;
 
 @RunWith(SpringJUnit4ClassRunner.class) //이건 테스트용이다! 여기까지 해주면 junit 돌리기 가능
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
@@ -75,6 +76,19 @@ public class mybatisTest {
 		MemberVO authMember = sqlSessionTemplate.selectOne("member.memberDAO.selectMember", member);
 		
 		System.out.println(authMember);
+		
+	}
+	
+	@Test
+	public void test(){
+		
+		ReplyVO reply = new ReplyVO();
+		reply.setBoardNo(5);
+		reply.setContent("롸미");
+		reply.setWriter("가");
+		
+		sqlSessionTemplate.insert("reply.ReplyDAO.insert", reply);
+		System.out.println(reply);
 		
 	}
 }

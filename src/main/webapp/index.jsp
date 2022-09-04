@@ -33,10 +33,14 @@
 <a href="${pageContext.request.contextPath}/mailform">메일</a><br><br>
 
 
+<a href="${pageContext.request.contextPath}/joinMybank">통장가입</a><br><br> <%-- 이 버튼으로 시작! --%>
+
+
 <a href="${pageContext.request.contextPath}/accountList">계좌목록(통장전환전)</a><br><br>
 
 
-<a href="${pageContext.request.contextPath}/changeSuccess">통장전환성공</a><br><br> <%-- 아직 컨트롤러단 안만듦!! --%>
+<a href="${pageContext.request.contextPath}/changeSuccess">통장전환성공</a><br><br> 
+
 
 </body>
 </html>

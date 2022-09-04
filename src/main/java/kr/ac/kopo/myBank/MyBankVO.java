@@ -8,9 +8,15 @@ public class MyBankVO {
 	private int parkingBal;
 	private int fixedBal;
 	private int livingBal;
+	private int myPoc1Bal;
+	private int myPoc2Bal;
+	private int myPoc3Bal;
 	private int income;
 	private String incomeDate;
 	private String openDate;
+	
+	
+	
 	public String getAccountNo() {
 		return accountNo;
 	}
@@ -47,6 +53,24 @@ public class MyBankVO {
 	public void setLivingBal(int livingBal) {
 		this.livingBal = livingBal;
 	}
+	public int getMyPoc1Bal() {
+		return myPoc1Bal;
+	}
+	public void setMyPoc1Bal(int myPoc1Bal) {
+		this.myPoc1Bal = myPoc1Bal;
+	}
+	public int getMyPoc2Bal() {
+		return myPoc2Bal;
+	}
+	public void setMyPoc2Bal(int myPoc2Bal) {
+		this.myPoc2Bal = myPoc2Bal;
+	}
+	public int getMyPoc3Bal() {
+		return myPoc3Bal;
+	}
+	public void setMyPoc3Bal(int myPoc3Bal) {
+		this.myPoc3Bal = myPoc3Bal;
+	}
 	public int getIncome() {
 		return income;
 	}
@@ -68,11 +92,10 @@ public class MyBankVO {
 	@Override
 	public String toString() {
 		return "MyBankVO [accountNo=" + accountNo + ", accountName=" + accountName + ", basicBal=" + basicBal
-				+ ", parkingBal=" + parkingBal + ", fixedBal=" + fixedBal + ", livingBal=" + livingBal + ", income="
-				+ income + ", incomeDate=" + incomeDate + ", openDate=" + openDate + "]";
+				+ ", parkingBal=" + parkingBal + ", fixedBal=" + fixedBal + ", livingBal=" + livingBal + ", myPoc1Bal="
+				+ myPoc1Bal + ", myPoc2Bal=" + myPoc2Bal + ", myPoc3Bal=" + myPoc3Bal + ", income=" + income
+				+ ", incomeDate=" + incomeDate + ", openDate=" + openDate + "]";
 	}
 	
-	
-	
-	
+
 }
